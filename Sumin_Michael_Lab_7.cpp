@@ -1,58 +1,44 @@
 //Michael Sumin
-//Lab 6
-//10/19/25
-//Use a combinatination of all skills learned to create a fitness and nutrition tracker program.
+//Lab 7
+//11/3/25
+//Figure out how to use extra files in c++
 
 
 #include <iostream>
-#include <iomanip>
 #include <string>
 #include <fstream>
-using namespace std;
+
+using namespace std; // declare needed setup
 
 
 int main() {
-    // Step 2: Declare variables for file streams
     ifstream inFile;
     ofstream outFile;
 
-    // Step 3: Open the input and output files
+
     inFile.open("inData.txt");
-    outFile.open("outData.txt");
+    outFile.open("outData.txt"); // open both files for program
 
-    // Step 4: Check that files opened correctly
-    if (!inFile) {
-        cerr << "Error opening input file." << endl;
-        return 1;
-    }
-    if (!outFile) {
-        cerr << "Error opening output file." << endl;
-        return 1;
-    }
-
-    // Step 5: Declare variables for input data
     int num1, num2;
     char ch;
-    string message;
+    string message; // declare variables
 
-    // Step 6: Read the data from the input file
+
     inFile >> num1 >> num2;
     inFile >> ch;
-    inFile >> message;
+    inFile >> message; // declare order of input
 
-    // Step 7: Process and write results to the output file
-    // (a) Sum of two integers
-    outFile << "Sum of the two numbers: " << (num1 + num2) << endl;
 
-    // (b) Next ASCII character
-    outFile << "Next character: " << static_cast<char>(ch + 1) << endl;
+    outFile << "Sum of the two numbers: " << (num1 + num2) << endl; // add inputs for output
 
-    // (c) String message
-    outFile << "Message: " << message << endl;
+    char nextch = ch + 1;
+    outFile << "Next character: " << nextch << endl; // find next variable in alphabet
 
-    // Step 8: Close both files
+    outFile << "Message: " << message << endl; // type out input message with additional "message" at start
+
+
     inFile.close();
-    outFile.close();
+    outFile.close(); // close files for comfortability
 
-    return 0;
+    return 0; // clean finish
 }
